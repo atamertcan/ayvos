@@ -7,7 +7,7 @@ def rescaleFrame(frame, scale=0.75):
     dimensions = (width, height)
     return cv.resize(frame, dimensions, interpolation=cv.INTER_AREA)
 
-cv.waitKey(0)
+
 
 capture = cv.VideoCapture('Videos/catvideo.mp4')
 
