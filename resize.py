@@ -19,7 +19,7 @@ while True:
     cv.imshow('Video', frame)
     cv.imshow('Video Resized', frame_resized)
 
-    if cv.waitKey(12) & 0xFF==ord('d'):
+    if cv.waitKey(1) & 0xFF==ord('d'):
         break
 
 capture.release()
