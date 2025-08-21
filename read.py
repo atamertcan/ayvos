@@ -9,7 +9,7 @@ while True:
     isTrue, frame = capture.read()
     cv.imshow('Video', frame)
 
-    if cv.waitKey(12) & 0xFF==ord('d'): #d'ye bastığında pencereyi kapat
+    if cv.waitKey(1) & 0xFF==ord('d'): #d'ye bastığında pencereyi kapat
         break
 
 capture.release()
