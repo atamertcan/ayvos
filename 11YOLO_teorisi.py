@@ -6,3 +6,11 @@ ve ızgaradan sonra anchorlu yapıya geçerken daha ileride anchor free(YOLOX) h
 YOLO R modeliyle ise multi-task learning kullanılmıştırç
 
 """
+
+from ultralytics import YOLO
+import cv2 as cv
+
+model = YOLO("YOLO_weights/yolov8n.pt")
+result=model("Photos/cat.jpeg",show=True)
+
+cv.waitKey(0)
