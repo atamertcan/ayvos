@@ -30,7 +30,7 @@ while True:
             #print(conf)
             className = names[int(box.cls)]
             cvzone.putTextRect(frame,f'{className} {conf}',
-                         (max(0,x1), max(35,y1)), scale=0.5, thickness=1)
+                         (max(0,x1), max(35,y1)), scale=0.5, thickness=1, offset=4)
 
     curr_time = time.time()
     fps = 1 / (curr_time - prev_time) if prev_time else 0
