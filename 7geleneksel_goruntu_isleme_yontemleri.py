@@ -3,7 +3,7 @@ import numpy as np
 #Önce blurlama yaparak başlıyoruz ki detaylarda bulunan kenarları da almasın 
 
 img = cv.imread("Photos/character.jpg", 0)
-img = cv.resize(img, None, fx=0.5, fy=0.5, interpolation=cv.INTER_CUBIC)
+img = cv.resize(img, None, fx=0.5, fy=0.5)
 blur = cv.GaussianBlur(img, (5,5), cv.BORDER_DEFAULT)
 
 def autoCanny(blur, sigma=0.33):

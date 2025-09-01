@@ -1,13 +1,19 @@
 import cvzone
+import torch
 from ultralytics import YOLO
 import cv2 as cv
+import time
 
 capture = cv.VideoCapture("Videos/people.mp4")
 #capture.set(3,1280)
 #capture.set(4,720)
 
+#device = "mps" if torch.backends.mps.is_available() else "cpu"
+
 model1 = YOLO("YOLO_weights/yolov8n.pt")
 
+
+prev_time = 0
 while True:
     isTrue, frame = capture.read()
     results = model1(frame,stream=True)
@@ -19,13 +25,18 @@ while True:
             x1,y1,x2,y2 = int(x1), int(y1), int(x2), int(y2)
 
             #print(x1,y1,x2,y2)
-            cv.rectangle(frame,(x1,y1),(x2,y2),(255,0,255),3)
+            cv.rectangle(frame,(x1,y1),(x2,y2),(255,0,255),1)
             conf = round(float(box.conf[0]),2)
             #print(conf)
             className = names[int(box.cls)]
             cvzone.putTextRect(frame,f'{className} {conf}',
-                         (max(0,x1), max(35,y1)),scale=0.7,thickness=1)
+                         (max(0,x1), max(35,y1)), scale=0.5, thickness=1)
 
+    curr_time = time.time()
+    fps = 1 / (curr_time - prev_time) if prev_time else 0
+    prev_time = curr_time
+    cv.putText(frame, f'FPS: {int(fps)}', (20, 40),
+               cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
     if cv.waitKey(1) & 0xFF == ord("q"):
         break
 
