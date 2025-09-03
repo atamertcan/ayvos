@@ -1,6 +1,6 @@
 import cv2 as cv
 
-img = cv.imread("Photos/blackandwhitecat.jpeg", 0)
+img = cv.imread("../Photos/blackandwhitecat.jpeg", 0)
 
 thresh1 = cv.adaptiveThreshold(img, 255, cv.ADAPTIVE_THRESH_MEAN_C, cv.THRESH_BINARY,15,5)
 thresh2 = cv.adaptiveThreshold(img, 255, cv.ADAPTIVE_THRESH_MEAN_C, cv.THRESH_BINARY,51,11) #daha da kalınlaşmış detay azalmış

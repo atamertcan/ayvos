@@ -4,7 +4,7 @@ from ultralytics import YOLO
 import cv2 as cv
 import time
 
-capture = cv.VideoCapture("Videos/people.mp4")
+capture = cv.VideoCapture("../Videos/people.mp4")
 #capture.set(3,1280)
 #capture.set(4,720)
 

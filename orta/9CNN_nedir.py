@@ -16,7 +16,7 @@ Activation layer: Ağa nonlineerlik ekleyerek karmaşık ilişkileri öğrenebil
 import cv2 as cv
 import numpy as np
  
-img = cv.imread("Photos/character.jpg", cv.IMREAD_COLOR)
+img = cv.imread("../Photos/character.jpg", cv.IMREAD_COLOR)
 img = cv.resize(img, None, fx = 0.5, fy = 0.5)
 
 kernel = np.ones((10,10),dtype=float)/100 #ortalama aldık. Box blur.

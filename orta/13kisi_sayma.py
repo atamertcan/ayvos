@@ -5,11 +5,11 @@ from ultralytics import YOLO
 import cv2 as cv
 from sort import *
 
-capture = cv.VideoCapture("Videos/people.mp4")
+capture = cv.VideoCapture("../Videos/people.mp4")
 
 
 model1 = YOLO("YOLO_weights/yolov8n.pt")
-mask = cv.imread("Photos/maskPeople.png")
+mask = cv.imread("../Photos/maskPeople.png")
 
 tracker = Sort(max_age=20, min_hits=3, iou_threshold=0.3)
 #limits = [550,700,1750,700] car için
@@ -50,7 +50,6 @@ while True:
     for result in resultsTracker:
         x1, y1, x2, y2, id = result
         x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
-        print(result)
         cv.rectangle(frame, (x1, y1), (x2, y2), (255, 0, 0), 1)
         cvzone.putTextRect(frame, f' {id}',
                            (max(0, x1), max(35, y1)), scale=1, thickness=1, offset=4)

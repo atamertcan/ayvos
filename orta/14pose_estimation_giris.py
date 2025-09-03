@@ -29,29 +29,34 @@ class poseDetector():
         if self.results.pose_landmarks:
             if draw:
                 self.mpDraw.draw_landmarks(frame, self.results.pose_landmarks,
-                                           self.mpPose.POSE_CONNECTIONS)
+                                           self.mpPose.POSE_CONNECTIONS,
+                                           self.mpDraw.DrawingSpec(color=(255,0,0), thickness = 5, circle_radius = 5),
+                                           self.mpDraw.DrawingSpec(color=(0,255,0), thickness = 5, circle_radius = 2)
+                                           )
         return frame
 
     def findPoints(self, frame, draw=True):
         lmList=[]
         if self.results.pose_landmarks:
-            for id, lm in enumerate(self.results.pose_landmarks.landmark):
+            landmarks = self.results.pose_landmarks.landmark
+            #h, w, c = frame.shape
+            #cx = int(landmarks[self.mpPose.PoseLandmark.RIGHT_WRIST].x * w)
+            #cy = int(landmarks[self.mpPose.PoseLandmark.RIGHT_WRIST].y * h)
+            #lmList.append([cx,cy])
+            for id, lm in enumerate(landmarks):
                 h, w, c = frame.shape
                 cx, cy = int(lm.x * w),int(lm.y * h)
-                #lmName = self.mpPose.PoseLandmark(14).name id'nin ismini almak için kullanabilirsin
                 lmList.append([id,cx,cy])
-                cv.circle(frame, (cx,cy), 5,
-                          (255,0,0), cv.FILLED)
         return lmList
 
 def main():
-    capture = cv.VideoCapture("Videos/rope.mp4")
+    capture = cv.VideoCapture("../Videos/rope.mp4")
     detector = poseDetector()
     while True:
         isTrue, frame = capture.read()
         frame = detector.findPose(frame)
         lmList = detector.findPoints(frame)
-        cv.circle(frame, (lmList[14][1],lmList[14][2]), 25,(0,0,255),cv.FILLED)
+        cv.circle(frame, (lmList[16][1],lmList[16][2]), 25,(0,0,255),cv.FILLED)
 
         cv.imshow("Img", frame)
         cv.waitKey(1)

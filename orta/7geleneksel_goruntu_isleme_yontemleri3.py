@@ -5,7 +5,7 @@ import cv2 as cv
 
 
 #SIMPLE TRESHOLDING
-img = cv.imread("Photos/blackandwhitecat.jpeg")
+img = cv.imread("../Photos/blackandwhitecat.jpeg")
 
 ret, thresh1 = cv.threshold(img, 127, 255, cv.THRESH_BINARY)
 ret, thresh2 = cv.threshold(img, 127, 255, cv.THRESH_BINARY_INV)

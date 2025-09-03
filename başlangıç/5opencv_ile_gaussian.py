@@ -1,6 +1,6 @@
 import cv2 as cv
 
-img = cv.imread("Photos/cat.jpeg")
+img = cv.imread("../Photos/cat.jpeg")
 
 blur = cv.GaussianBlur(img, (3,3), cv.BORDER_DEFAULT) #Buradaki kernel size'ı arttırarak daha fazla blur elde edilir
 

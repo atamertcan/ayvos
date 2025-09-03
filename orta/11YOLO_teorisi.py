@@ -13,7 +13,7 @@ import cv2 as cv
 model = YOLO("YOLO_weights/yolov8n.pt")
 
 
-img = cv.imread("Photos/cars.jpg")
+img = cv.imread("../Photos/cars.jpg")
 gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
 img1 = cv.GaussianBlur(img,(5,5),0)
 img2 = cv.adaptiveThreshold(gray,255,cv.ADAPTIVE_THRESH_MEAN_C,cv.THRESH_BINARY,15,5)

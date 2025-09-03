@@ -2,7 +2,7 @@ import cv2 as cv
 
 #Kullanım olarak ve genel mantık olarak SIFT ile benzer. SIFT'e göre çok daha hızlı.
 
-img = cv.imread("Photos/character.jpg", cv.IMREAD_GRAYSCALE)
+img = cv.imread("../Photos/character.jpg", cv.IMREAD_GRAYSCALE)
 
 orb = cv.ORB_create()
 keypoints = orb.detect(img, None)

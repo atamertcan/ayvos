@@ -1,9 +1,9 @@
 import cv2 as cv
 
-img = cv.imread('Photos/cat.jpeg')
+img = cv.imread('../Photos/cat.jpeg')
 cv.imshow('Cat', img)
 
-capture = cv.VideoCapture('Videos/catvideo.mp4')
+capture = cv.VideoCapture('../Videos/catvideo.mp4')
 
 while True:
     isTrue, frame = capture.read()

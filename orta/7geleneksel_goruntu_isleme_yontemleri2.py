@@ -1,7 +1,7 @@
 import cv2 as cv
 import numpy as np
 
-img = cv.imread("Photos/logo.png")
+img = cv.imread("../Photos/logo.png")
 kernel = np.ones((5,5),np.uint8)
 
 dilation = cv.dilate(img, kernel, iterations=1) #genişleme yapar. Kesikli bölgeleri doldurmada kullanılır.Iteration genişlemeyi belirliyor.

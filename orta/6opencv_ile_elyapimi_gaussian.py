@@ -11,7 +11,7 @@ def gaussian_kernel(size: int, sigma: float):
     return kernel
 
 # Görüntü oku
-img = cv.imread("Photos/cat.jpeg")
+img = cv.imread("../Photos/cat.jpeg")
 
 # Kernel oluştur
 kernel = gaussian_kernel(11, 2)
